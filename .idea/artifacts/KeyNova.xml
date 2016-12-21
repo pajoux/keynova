@@ -1,0 +1,23 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="KeyNova">
+    <output-path>$PROJECT_DIR$/out/artifacts/KeyNova</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="com.idlecode.keynova.KeyNova" />
+        <option name="description" value="" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="KeyNova" />
+        <option name="vendor" value="" />
+        <option name="version" value="" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="KeyNova.jar">
+        <element id="module-output" name="KeyNova" />
+        <element id="library" level="project" name="jnativehook-2.0.3" />
+        <element id="library" level="project" name="logiled" />
+        <element id="library" level="project" name="org.json:json:20140107" />
+      </element>
+    </root>
+  </artifact>
+</component>
