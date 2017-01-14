@@ -109,7 +109,8 @@ public enum KeyCode {
   ARROW_DOWN(5, 16, LogiLED.ARROW_DOWN),
   ARROW_RIGHT(5, 17, LogiLED.ARROW_RIGHT),
   NUM_ZERO(5, 18, LogiLED.NUM_ZERO),
-  NUM_PERIOD(5, 19, LogiLED.NUM_PERIOD);
+  NUM_PERIOD(5, 19, LogiLED.NUM_PERIOD),
+  NULL(-1, -1, -1);
 
   private int row;
   private int col;
@@ -243,6 +244,7 @@ public enum KeyCode {
       case LogiLED.ARROW_RIGHT: return   ARROW_RIGHT;
       case LogiLED.NUM_ZERO: return   NUM_ZERO;
       case LogiLED.NUM_PERIOD: return NUM_PERIOD;
+      case -1: return NULL;
     }
     return P;
   }
