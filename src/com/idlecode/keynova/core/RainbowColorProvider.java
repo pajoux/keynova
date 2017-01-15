@@ -9,28 +9,47 @@ import java.util.Optional;
 public class RainbowColorProvider extends ColorProvider {
     private final long cycleLengthMs;
     private final double f;
-    private final float alpha;
+    private final double phase;
+    private final AlphaProvider alphaProvider;
+    private Long startTime;
 
-    public RainbowColorProvider(Long cycleLengthMs, float alpha) {
+    public RainbowColorProvider(Long cycleLengthMs, double phase, AlphaProvider alphaProvider) {
         this.cycleLengthMs = cycleLengthMs;
-        this.alpha = alpha;
-        f = Math.PI * 2 / cycleLengthMs;
+        this.f = Math.PI * 2 / cycleLengthMs;
+        this.phase = phase;
+        this.alphaProvider = alphaProvider;
+        this.startTime = new Long(-1);
     }
 
     @Override
     public void setStartTime(Long t) {
-
+        startTime = t;
+        alphaProvider.setStartTime(t);
     }
 
     @Override
     public int getColor(Long t) {
-        long delta = t % cycleLengthMs;
-        double r0 = f * delta + 2;
-        double r1 = f * delta + 0;
-        double r2 = f * delta + 4;
-        float r = (float)(Math.sin(r0) * 0.5 + 0.5);
-        float g = (float)(Math.sin(r1) * 0.5 + 0.5);
-        float b = (float)(Math.sin(r2) * 0.5 + 0.5);
-        return Color.rgba(r, g, b, alpha);
+        return Color.getRainbowColor(t, cycleLengthMs, f, phase, alphaProvider.getAlpha(t));
+    }
+
+    @Override
+    public ColorProvider getCopy() {
+        return new RainbowColorProvider(cycleLengthMs, phase, alphaProvider.getCopy());
+    }
+
+    @Override
+    public void setColorStartTime(int color, Long t) {
+        this.startTime = t;
+        alphaProvider.setStartTime(t);
+    }
+
+    @Override
+    public Long getStartTime() {
+        return startTime;
+    }
+
+    @Override
+    public AlphaProvider getAlphaProvider() {
+        return alphaProvider;
     }
 }
