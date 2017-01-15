@@ -15,16 +15,37 @@ public class NewKeyBurst extends Node2<Long, Map<KeyCode, Long>, ROColorBitmap> 
   private Map<KeyCode, KeyColorTime> keyStartTimes = new HashMap<>();
   private ColorProvider colorProvider;
 
+  private NewKeyBurst(
+    Clock clock,
+    Node<Map<KeyCode, Long>> source,
+    int switchDelayMs
+  ) {
+    super(clock, source);
+    this.switchDelayMs = switchDelayMs;
+  }
+
   public NewKeyBurst(
     Clock clock,
     Node<Map<KeyCode, Long>> source,
     int switchDelayMs,
     ColorProvider colorProvider
   ) {
-    super(clock, source);
-    this.switchDelayMs = switchDelayMs;
+    this(clock, source, switchDelayMs);
     this.colorProvider = colorProvider;
     SingleColorProvider cp = new SingleColorProvider(colorProvider.getColor(new Long(0)), colorProvider.getAlphaProvider());
+    buffer.initializeAll(cp);
+  }
+
+  public NewKeyBurst(
+    Clock clock,
+    Node<Map<KeyCode, Long>> source,
+    int switchDelayMs,
+    ColorProvider colorProvider,
+    AlphaProvider alphaProvider
+  ) {
+    this(clock, source, switchDelayMs);
+    this.colorProvider = colorProvider;
+    SingleColorProvider cp = new SingleColorProvider(colorProvider.getColor(new Long(0)), alphaProvider);
     buffer.initializeAll(cp);
   }
 
