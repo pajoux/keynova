@@ -28,7 +28,7 @@ var composition = function () {
   var solid = new SolidColor(blue);
   //var slide = new KeyBurst(clock, listener, 500, 10, gold);
   var rainbowColorProvider = new RainbowColorProvider(50, 1.0)
-  var wave = new RainbowKeyBurst(clock, listener, 1000, 20, rainbowColorProvider);
+  var wave = new RainbowKeyBurst(clock, listener, 800, 80, rainbowColorProvider);
   // return null;
   // asdf,/.,/.,
   // return new Composition(wave);
@@ -36,6 +36,6 @@ var composition = function () {
   return new Composition(combine1);
 };
 
-// Test
+// Test05ghjd12563484it5kpllppllplplplplplplplplikujuj
 
 
