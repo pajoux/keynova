@@ -1,12 +1,9 @@
 package com.idlecode.keynova.core;
 
-import java.util.List;
-import java.util.Optional;
-
 /**
  *
  */
-public class SingleColorProvider extends ColorProvider {
+public class SingleColorProvider implements ColorProvider {
     private int color;
     private final AlphaProvider alphaProvider;
     private Long startTime;

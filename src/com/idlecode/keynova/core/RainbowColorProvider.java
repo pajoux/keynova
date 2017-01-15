@@ -1,12 +1,9 @@
 package com.idlecode.keynova.core;
 
-import java.util.List;
-import java.util.Optional;
-
 /**
  *
  */
-public class RainbowColorProvider extends ColorProvider {
+public class RainbowColorProvider implements ColorProvider {
     private final long cycleLengthMs;
     private final double f;
     private final double phase;

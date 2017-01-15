@@ -3,7 +3,7 @@ package com.idlecode.keynova.core;
 /**
  * Created by Taylor on 1/15/2017.
  */
-public class SingleAlphaProvider extends AlphaProvider {
+public class SingleAlphaProvider implements AlphaProvider {
   private final float alpha;
   private Long startTime;
 

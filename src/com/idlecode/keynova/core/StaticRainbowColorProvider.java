@@ -6,7 +6,7 @@ import java.util.Optional;
 /**
  *
  */
-public class StaticRainbowColorProvider extends ColorProvider {
+public class StaticRainbowColorProvider implements ColorProvider {
   private final long cycleLengthMs;
   private final double f;
   private final double phase;

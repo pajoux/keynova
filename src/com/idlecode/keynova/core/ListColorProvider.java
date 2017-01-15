@@ -5,7 +5,7 @@ import java.util.List;
 /**
  *
  */
-public class ListColorProvider extends ColorProvider {
+public class ListColorProvider implements ColorProvider {
     private final List<Integer> colors;
     private final AlphaProvider alphaProvider;
     private int index;

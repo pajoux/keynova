@@ -3,7 +3,7 @@ package com.idlecode.keynova.core;
 /**
  * Created by Taylor on 1/15/2017.
  */
-public class FadeInAlphaProvider extends AlphaProvider {
+public class FadeInAlphaProvider implements AlphaProvider {
   private final float alpha;
   private final int dissolveTimeMs;
   private Long startTime;

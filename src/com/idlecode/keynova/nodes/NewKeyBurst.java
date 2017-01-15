@@ -51,7 +51,7 @@ public class NewKeyBurst extends Node2<Long, Map<KeyCode, Long>, ROColorBitmap> 
 
   private void checkAndUpdateBurstMap(KeyCode currentEntry, KeyColorTime newKCT, Long t) {
     KeyColorTime currentKCT = keyStartTimes.get(currentEntry);
-    if (currentKCT == null || (!currentKCT.Equals(newKCT) && currentKCT.getTime() < newKCT.getTime())) {
+    if (currentKCT == null || (!currentKCT.equals(newKCT) && currentKCT.getTime() < newKCT.getTime())) {
       keyStartTimes.put(currentEntry, newKCT);
       keyBurstKeys.add(currentEntry);
       buffer.getColorProvider(currentEntry).setColorStartTime(newKCT.getColor(), t);

@@ -6,11 +6,11 @@ import java.util.Optional;
 /**
  *
  */
-public abstract class ColorProvider {
-    abstract public void setStartTime(Long t);
-    abstract public int getColor(Long t);
-    abstract public ColorProvider getCopy();
-    abstract public AlphaProvider getAlphaProvider();
-    abstract public void setColorStartTime(int color, Long t);
-    abstract public Long getStartTime();
+public interface ColorProvider {
+    public void setStartTime(Long t);
+    public int getColor(Long t);
+    public ColorProvider getCopy();
+    public AlphaProvider getAlphaProvider();
+    public void setColorStartTime(int color, Long t);
+    public Long getStartTime();
 }
