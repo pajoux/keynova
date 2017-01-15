@@ -49,6 +49,18 @@ public class NewKeyBurst extends Node2<Long, Map<KeyCode, Long>, ROColorBitmap> 
     buffer.initializeAll(cp);
   }
 
+  public NewKeyBurst(
+    Clock clock,
+    Node<Map<KeyCode, Long>> source,
+    int switchDelayMs,
+    ColorProvider colorProvider,
+    ColorProvider bufferColorProvider
+  ) {
+    this(clock, source, switchDelayMs);
+    this.colorProvider = colorProvider;
+    buffer.initializeAll(bufferColorProvider);
+  }
+
   private void checkAndUpdateBurstMap(KeyCode currentEntry, KeyColorTime newKCT, Long t) {
     KeyColorTime currentKCT = keyStartTimes.get(currentEntry);
     if (currentKCT == null || (!currentKCT.equals(newKCT) && currentKCT.getTime() < newKCT.getTime())) {
