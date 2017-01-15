@@ -3,7 +3,9 @@ package com.idlecode.keynova.core;
 import java.util.*;
 
 /**
- *
+ * A Composition represents a directed-acyclic graph (DAG) of connected Nodes that outputs one
+ * Bitmapable object. A composition is constructed from by providing the single leaf Node. The DAG
+ * will be implicit in the parents of the leaf-node.
  */
 public class Composition {
 

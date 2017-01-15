@@ -5,7 +5,8 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- *
+ * A core node that represents the passing of time. This node is always updated and will return
+ * the current time.
  */
 public class Clock extends Node<Long> {
 

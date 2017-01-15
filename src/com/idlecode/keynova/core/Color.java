@@ -1,12 +1,30 @@
 package com.idlecode.keynova.core;
 
 /**
- * Construct pre-multiplied alpha packed integer colors.
+ * Construct 8-bit pre-multiplied alpha packed integer colors.
+ *
+ * In a 32-bit integer we pack a red, green, blue, and alpha channel.
+ *
+ *   bits [24,31] => Alpha
+ *   bits [16,23] => Red
+ *   bits [8,14] => Green
+ *   bits [0,7] => Blue
+ *
+ * Each byte value is written in Java big-endian order (high order bits first).
+ *
+ * A pre-multiplied color means that the alpha channel has been multiplied into each of the red,
+ * green, and blue channels. In practice, per-multiplied values result in better results.
  */
 public class Color {
 
   public static final int TRANSPARENT = Color.rgba(0, 0, 0, 0);
 
+  /**
+   * A basic alpha-blend of a {@code fg} (foreground) color onto a {@code bg} (background) color.
+   * The resulting color is a pre-multiplied packed integer. This means the red, green, blue
+   * values in the resulting color can be used as-is to display without the need to multiply in
+   * the alpha channel. The alpha channel will contain the blended alpha channel.
+   */
   public static int alphaBlend(int bg, int fg) {
     int inv = 256 - (a(fg) + 1);
     return pack(
@@ -17,6 +35,10 @@ public class Color {
     );
   }
 
+  /**
+   * Given a {@code color}, change the alpha channel. This will re-compute the red, green, and blue
+   * channels so that the resulting color is properly pre-multiplied.
+   */
   public static int setA(int color, int a) {
     return rgba(r(color), g(color), b(color), a);
   }

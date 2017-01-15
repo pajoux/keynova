@@ -1,7 +1,7 @@
 package com.idlecode.keynova.core;
 
 /**
- * An object that can be turned into a ByteBitmap object.
+ * An object that can be turned into a ByteBitmap.
  */
 public interface Bitmapable {
   /**

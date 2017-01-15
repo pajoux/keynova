@@ -1,6 +1,5 @@
 package com.idlecode.keynova.core;
 
-import com.idlecode.keynova.KeyNova;
 import com.idlecode.keynova.concurrency.SequentialContext;
 import com.logitech.gaming.LogiLED;
 import jdk.nashorn.api.scripting.ClassFilter;
@@ -8,17 +7,10 @@ import jdk.nashorn.api.scripting.NashornScriptEngineFactory;
 
 import javax.script.Invocable;
 import javax.script.ScriptEngine;
-import javax.script.ScriptException;
-import java.io.Closeable;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 import java.nio.file.Path;
-import java.security.InvalidParameterException;
 import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-import java.util.function.Function;
 
 /**
  * Runs a composition on a dedicated thread.
@@ -36,7 +28,6 @@ public class Processor extends SequentialContext {
         s.startsWith("java.util");
     }
   }
-
 
   private ScheduledFuture<?> loop;
   private Composition runningComposition;
