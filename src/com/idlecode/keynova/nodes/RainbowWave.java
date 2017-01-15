@@ -14,11 +14,11 @@ public class RainbowWave extends Node1<Long, ROColorBitmap> {
   private final long cycleLengthMs;
   private final float alpha;
 
-  public RainbowWave(Clock clock, long cycleLenghtMs, float alpha) {
+  public RainbowWave(Clock clock, long cycleLengthMs, float alpha) {
     super(clock);
     this.alpha = alpha;
-    this.cycleLengthMs = cycleLenghtMs;
-    f = Math.PI * 2 / cycleLenghtMs;
+    this.cycleLengthMs = cycleLengthMs;
+    f = Math.PI * 2 / cycleLengthMs;
   }
 
   @Override

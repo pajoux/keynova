@@ -10,7 +10,7 @@ import org.jnativehook.keyboard.NativeKeyListener;
 import java.util.*;
 
 /**
- *
+ * Special node that will output a map of key to time when pressed.
  */
 public class KeyListener extends Node1<Long, Map<KeyCode, Long>> implements NativeKeyListener {
 
@@ -33,7 +33,7 @@ public class KeyListener extends Node1<Long, Map<KeyCode, Long>> implements Nati
 
   @Override
   protected Optional<Map<KeyCode, Long>> process(Long t) {
-    // No new events, don't return or update anything.
+    // No new events; don't return or update anything.
     if (keys.isEmpty()) {
       return Optional.empty();
     }
@@ -53,8 +53,6 @@ public class KeyListener extends Node1<Long, Map<KeyCode, Long>> implements Nati
 
   @Override
   public void nativeKeyPressed(NativeKeyEvent nativeKeyEvent) {
-//    System.out.println(nativeKeyEvent.getKeyCode() + " " + nativeKeyEvent.getKeyLocation() + " " +
-//      nativeKeyEvent.getRawCode() + " ");
     keys.add(KeyCode.fromInt(nativeKeyEvent.getKeyCode()));
   }
 
