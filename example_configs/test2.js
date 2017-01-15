@@ -4,6 +4,7 @@ var KeyLocations = Java.type('com.idlecode.keynova.core.KeyLocations');
 var Composition = Java.type('com.idlecode.keynova.core.Composition');
 var Clock = Java.type('com.idlecode.keynova.core.Clock');
 var Color = Java.type('com.idlecode.keynova.core.Color');
+var RainbowColorProvider = Java.type('com.idlecode.keynova.core.RainbowColorProvider');
 
 // Nodes
 var KeyListener = Java.type('com.idlecode.keynova.nodes.KeyListener');
@@ -26,7 +27,8 @@ var composition = function () {
   var listener = new KeyListener(clock);
   var solid = new SolidColor(blue);
   //var slide = new KeyBurst(clock, listener, 500, 10, gold);
-  var wave = new RainbowKeyBurst(clock, listener, 1000, 20, 50, 1.0);
+  var rainbowColorProvider = new RainbowColorProvider(50, 1.0)
+  var wave = new RainbowKeyBurst(clock, listener, 1000, 20, rainbowColorProvider);
   // return null;
   // asdf,/.,/.,
   // return new Composition(wave);
