@@ -80,6 +80,17 @@ public class Color {
     return pack((r * t) >> 8, (g * t) >> 8, (b * t) >> 8, a);
   }
 
+  public static int getRainbowColor(Long t, long cycleLengthMs, double f, double phase, float alpha) {
+    long delta = t % cycleLengthMs;
+    double r0 = f * delta + 2;
+    double r1 = f * delta + 0;
+    double r2 = f * delta + 4;
+    float r = (float)(Math.sin(r0 + phase) * 0.5 + 0.5);
+    float g = (float)(Math.sin(r1 + phase) * 0.5 + 0.5);
+    float b = (float)(Math.sin(r2 + phase) * 0.5 + 0.5);
+    return Color.rgba(r, g, b, alpha);
+  }
+
   private static int pack(int r, int g, int b, int a) {
     return ((a << 24) & 0xFF000000) | ((r << 16) & 0xFF0000) | ((g << 8) & 0xFF00) | (b & 0xFF);
   }

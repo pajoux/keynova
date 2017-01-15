@@ -6,19 +6,55 @@ import java.util.List;
  *
  */
 public class ListColorProvider implements ColorProvider {
-  private final List<Integer> colors;
-  private int index;
+    private final List<Integer> colors;
+    private final AlphaProvider alphaProvider;
+    private int index;
+    private Long startTime;
 
-  public ListColorProvider(List<Integer> colors) {
-    this.colors = colors;
-    index = 0;
-  }
-
-  @Override
-  public int getColor(Long t) {
-    if (index > colors.size() - 1) {
-      index = 0;
+    public ListColorProvider(List<Integer> colors, AlphaProvider alphaProvider) {
+        this.colors = colors;
+        this.alphaProvider = alphaProvider;
+        this.index = 0;
+        this.startTime = new Long(-1);
     }
-    return colors.get(index++);
-  }
+
+    @Override
+    public void setStartTime(Long t) {
+        index++;
+        if (index > colors.size() - 1) {
+            index = 0;
+        }
+        startTime = t;
+        alphaProvider.setStartTime(t);
+    }
+
+    @Override
+    public int getColor(Long t) {
+        return Color.setA(colors.get(index), alphaProvider.getAlpha(t));
+    }
+
+    @Override
+    public ColorProvider getCopy() {
+        return new ListColorProvider(colors, alphaProvider.getCopy());
+    }
+
+    @Override
+    public void setColorStartTime(int color, Long t) {
+        index = colors.indexOf(color);
+        if (index < 0) {
+            index = 0;
+        }
+        this.startTime = t;
+        alphaProvider.setStartTime(t);
+    }
+
+    @Override
+    public Long getStartTime() {
+        return startTime;
+    }
+
+    @Override
+    public AlphaProvider getAlphaProvider() {
+        return alphaProvider;
+    }
 }
