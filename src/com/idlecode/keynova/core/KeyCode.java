@@ -3,7 +3,7 @@ package com.idlecode.keynova.core;
 import com.logitech.gaming.LogiLED;
 
 /**
- *
+ * Represents all possible keys on a Logitech G-Series keyboard.
  */
 public enum KeyCode {
   ESC(0, 0, LogiLED.ESC),

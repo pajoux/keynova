@@ -2,6 +2,11 @@ package com.idlecode.keynova.core;
 
 /**
  * Represents a keyboard color bitmap with red, green, blue, and alpha channels as bytes.
+ *
+ * This bitmap is a play byte array (byte[]) where each channel takes up one byte and each pixel
+ * has 4 channels. The bitmap represents a 21x6 image. The ordering of the channels in the array are
+ * designed to work with the Logitech Keyboard expected order. See {@code getBytes()} for more
+ * details.
  */
 public class ByteBitmap {
 

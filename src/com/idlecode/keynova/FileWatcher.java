@@ -58,8 +58,9 @@ public class FileWatcher {
             continue;
           }
           WatchEvent<Path> ev = (WatchEvent<Path>)event;
-          Path filename = ev.context();
-          Callback callback = callbacks.get(filename.toAbsolutePath().toString());
+          Path dir = (Path)key.watchable();
+          Path filename = dir.resolve(ev.context()).toAbsolutePath();
+          Callback callback = callbacks.get(filename.toString());
           if (callback != null) {
             callback.apply(filename);
           }
