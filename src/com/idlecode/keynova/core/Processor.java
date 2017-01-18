@@ -25,6 +25,7 @@ public class Processor extends SequentialContext {
       return
         s.startsWith("com.idlecode.keynova.core") ||
         s.startsWith("com.idlecode.keynova.nodes") ||
+        s.startsWith("com.idlecode.keynova.colors") ||
         s.startsWith("java.util");
     }
   }

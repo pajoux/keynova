@@ -1,6 +1,9 @@
-package com.idlecode.keynova.core;
+package com.idlecode.keynova.colors;
 
 import java.util.List;
+
+import com.idlecode.keynova.core.*;
+
 /**
  *
  */

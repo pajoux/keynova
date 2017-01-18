@@ -1,7 +1,6 @@
-package com.idlecode.keynova.core;
+package com.idlecode.keynova.colors;
 
-import java.util.List;
-import java.util.Optional;
+import com.idlecode.keynova.core.*;
 
 /**
  *
@@ -12,26 +11,26 @@ public class StaticRainbowColorProvider implements ColorProvider {
   private final double phase;
   private int color;
   private final AlphaProvider alphaProvider;
-  private Long startTime;
+  private long startTime;
 
   public StaticRainbowColorProvider(Long cycleLengthMs, double phase, AlphaProvider alphaProvider) {
     this.cycleLengthMs = cycleLengthMs;
     this.f = Math.PI * 2 / cycleLengthMs;
-    this.color = Color.getRainbowColor(new Long(0), cycleLengthMs, f, phase, 1.0f);
+    this.color = Color.getRainbowColor(0L, cycleLengthMs, f, phase, 1.0f);
     this.phase = phase;
     this.alphaProvider = alphaProvider;
-    this.startTime = new Long(-1);
+    this.startTime = -1;
   }
 
   @Override
-  public void setStartTime(Long t) {
+  public void setStartTime(long t) {
     color = Color.getRainbowColor(t, cycleLengthMs, f, phase, 1.0f);
     startTime = t;
     alphaProvider.setStartTime(t);
   }
 
   @Override
-  public int getColor(Long t) {
+  public int getColor(long t) {
     return  Color.setA(color, alphaProvider.getAlpha(t));
   }
 
@@ -41,14 +40,14 @@ public class StaticRainbowColorProvider implements ColorProvider {
   }
 
   @Override
-  public void setColorStartTime(int color, Long t) {
+  public void setColorStartTime(int color, long t) {
     this.color = color;
     this.startTime = t;
     alphaProvider.setStartTime(t);
   }
 
   @Override
-  public Long getStartTime() {
+  public long getStartTime() {
     return startTime;
   }
 

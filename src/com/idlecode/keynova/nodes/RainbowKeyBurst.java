@@ -2,6 +2,7 @@ package com.idlecode.keynova.nodes;
 
 import java.util.*;
 
+import com.idlecode.keynova.colors.*;
 import com.idlecode.keynova.core.*;
 
 /**

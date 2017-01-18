@@ -1,5 +1,6 @@
 package com.idlecode.keynova.nodes;
 
+import com.idlecode.keynova.colors.*;
 import com.idlecode.keynova.core.*;
 
 import java.util.Optional;

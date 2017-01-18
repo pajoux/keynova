@@ -1,8 +1,8 @@
 // Core Classes
 var Composition = Java.type('com.idlecode.keynova.core.Composition');
 var Clock = Java.type('com.idlecode.keynova.core.Clock');
-var RainbowColorProvider = Java.type('com.idlecode.keynova.core.RainbowColorProvider');
-var FadeOutAlphaProvider = Java.type('com.idlecode.keynova.core.FadeOutAlphaProvider');
+var RainbowColorProvider = Java.type('com.idlecode.keynova.colors.RainbowColorProvider');
+var FadeOutAlphaProvider = Java.type('com.idlecode.keynova.colors.FadeOutAlphaProvider');
 
 // Nodes
 var KeyListener = Java.type('com.idlecode.keynova.nodes.KeyListener');
@@ -15,10 +15,10 @@ var composition = function () {
   var listener = new KeyListener(clock);
   var fadeOutAlphaProvider = new FadeOutAlphaProvider(1.0, 1000);
   var rainbowColorProvider = new RainbowColorProvider(2000, 0, fadeOutAlphaProvider);
-  var wave = new NewKeyBurst(clock, listener, 200, rainbowColorProvider, rainbowColorProvider);
+  var wave = new NewKeyBurst(clock, listener, 50, rainbowColorProvider, rainbowColorProvider);
   return new Composition(wave);
 };
 
-// Test
-
-
+/*
+testing this out
+*/

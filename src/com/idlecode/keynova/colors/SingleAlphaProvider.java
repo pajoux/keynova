@@ -1,24 +1,21 @@
-package com.idlecode.keynova.core;
+package com.idlecode.keynova.colors;
 
-/**
- * Created by Taylor on 1/15/2017.
- */
 public class SingleAlphaProvider implements AlphaProvider {
   private final float alpha;
-  private Long startTime;
+  private long startTime;
 
   public SingleAlphaProvider(float alpha) {
     this.alpha = alpha;
-    this.startTime = new Long(-1);
+    this.startTime = -1;
   }
 
   @Override
-  public void setStartTime(Long t) {
+  public void setStartTime(long t) {
     startTime = t;
   }
 
   @Override
-  public float getAlpha(Long t) {
+  public float getAlpha(long t) {
     return alpha;
   }
 
@@ -28,7 +25,7 @@ public class SingleAlphaProvider implements AlphaProvider {
   }
 
   @Override
-  public Long getStartTime() {
+  public long getStartTime() {
     return startTime;
   }
 }
